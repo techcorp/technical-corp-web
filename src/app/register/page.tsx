@@ -6,8 +6,9 @@ import { motion } from "framer-motion";
 import { Mail, Lock, User, ArrowRight, Loader2, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import { Suspense } from "react";
 
-const RegisterPage = () => {
+const RegisterContent = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [fullName, setFullName] = useState("");
@@ -145,6 +146,18 @@ const RegisterPage = () => {
                 </div>
             </motion.div>
         </div>
+    );
+};
+
+const RegisterPage = () => {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-bg-dark flex items-center justify-center">
+                <Loader2 className="animate-spin text-brand-primary" size={48} />
+            </div>
+        }>
+            <RegisterContent />
+        </Suspense>
     );
 };
 
