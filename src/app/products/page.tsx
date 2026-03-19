@@ -177,8 +177,8 @@ const ProductsPage = () => {
                                                     <Tag size={10} />
                                                     {product.category?.name || "General"}
                                                 </div>
-                                                <div className="text-xl font-black text-white">
-                                                    {product.is_free ? "Free" : `$${product.price}`}
+                                                <div className="text-xl font-black text-white uppercase italic">
+                                                    {product.is_free ? "Free" : `${product.currency} ${product.price}`}
                                                 </div>
                                             </div>
 

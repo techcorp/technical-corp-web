@@ -242,14 +242,24 @@ const EditProduct = () => {
 
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Price ({formData.currency})</label>
-                                        <input
-                                            type="number"
-                                            disabled={formData.is_free}
-                                            value={formData.is_free ? 0 : formData.price}
-                                            onChange={(e) => setFormData({ ...formData, price: parseFloat(e.target.value) })}
-                                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all disabled:opacity-30 font-medium"
-                                        />
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Price</label>
+                                        <div className="flex gap-2">
+                                            <select
+                                                value={formData.currency}
+                                                onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
+                                                className="w-24 bg-white/5 border border-white/10 rounded-2xl px-3 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all appearance-none font-bold text-xs"
+                                            >
+                                                <option value="USD" className="bg-bg-dark">USD</option>
+                                                <option value="PKR" className="bg-bg-dark">PKR</option>
+                                            </select>
+                                            <input
+                                                type="number"
+                                                disabled={formData.is_free}
+                                                value={formData.is_free ? 0 : formData.price}
+                                                onChange={(e) => setFormData({ ...formData, price: parseFloat(e.target.value) })}
+                                                className="flex-grow bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all disabled:opacity-30 font-medium"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Category</label>
