@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
     ShoppingBag,
@@ -20,12 +21,21 @@ import { supabase } from "@/lib/supabase";
 import { Product } from "@/types/product";
 
 const ProductManagement = () => {
+    const router = useRouter();
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        const checkAuth = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+                router.push("/error-404");
+                return;
+            }
+            fetchProducts();
+        };
+        checkAuth();
+    }, [router]);
 
     const fetchProducts = async () => {
         setLoading(true);
