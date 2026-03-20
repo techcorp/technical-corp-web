@@ -170,7 +170,15 @@ const CreateProduct = () => {
                                         type="text"
                                         required
                                         value={formData.title}
-                                        onChange={(e) => setFormData({ ...formData, title: e.target.value, slug: e.target.value.toLowerCase().replace(/ /g, '-') })}
+                                        onChange={(e) => {
+                                            const title = e.target.value;
+                                            const slug = title.toLowerCase()
+                                                .trim()
+                                                .replace(/[^a-z0-9\s-]/g, '') // Remove special chars
+                                                .replace(/[\s_-]+/g, '-') // Replace spaces/underscores/hyphens with single hyphen
+                                                .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+                                            setFormData({ ...formData, title, slug });
+                                        }}
                                         placeholder="e.target. Enterprise Dashboard Pro"
                                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all"
                                     />

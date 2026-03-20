@@ -228,16 +228,37 @@ const EditProduct = () => {
                             </h2>
 
                             <div className="space-y-6">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Product Title</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        value={formData.title}
-                                        onChange={(e) => setFormData({ ...formData, title: e.target.value, slug: e.target.value.toLowerCase().replace(/ /g, '-') })}
-                                        placeholder="e.g. Enterprise Dashboard Pro"
-                                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all font-medium"
-                                    />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Product Title</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            value={formData.title}
+                                            onChange={(e) => {
+                                                const title = e.target.value;
+                                                const slug = title.toLowerCase()
+                                                    .trim()
+                                                    .replace(/[^a-z0-9\s-]/g, '')
+                                                    .replace(/[\s_-]+/g, '-')
+                                                    .replace(/^-+|-+$/g, '');
+                                                setFormData({ ...formData, title, slug });
+                                            }}
+                                            placeholder="e.target. Enterprise Dashboard Pro"
+                                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all font-medium"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">URL Slug</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            value={formData.slug}
+                                            onChange={(e) => setFormData({ ...formData, slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '-') })}
+                                            placeholder="product-url-slug"
+                                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-primary/50 transition-all font-medium"
+                                        />
+                                    </div>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-6">
