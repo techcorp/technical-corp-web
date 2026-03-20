@@ -120,13 +120,13 @@ const CheckoutContent = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="max-w-xl w-full glass p-16 rounded-[60px] border border-white/10 text-center relative overflow-hidden shadow-3xl"
+                className="max-w-xl w-full glass p-12 rounded-[40px] border border-white/10 text-center relative overflow-hidden shadow-2xl"
             >
                 <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-brand-primary to-emerald-500" />
                 <div className="w-24 h-24 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-10 border border-emerald-500/20 group">
                     <CheckCircle2 size={48} className="text-emerald-500 group-hover:scale-110 transition-transform" />
                 </div>
-                <h1 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">Order <span className="text-emerald-500">Initiated</span></h1>
+                <h1 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase italic tracking-tighter leading-none">Order <span className="text-emerald-500">Initiated</span></h1>
                 <p className="text-white/40 mb-12 text-lg font-medium leading-relaxed">We&apos;ve received your request! Once verified, your digital assets will be available for instant download. Order Reference: <span className="text-brand-primary font-black">#{searchParams.get('order_ref')?.slice(0, 8).toUpperCase() || 'TX-892'}</span></p>
 
                 <div className="p-10 rounded-[48px] bg-white/[0.03] border border-white/5 mb-12 text-left group hover:border-brand-primary/20 transition-all">
@@ -146,9 +146,9 @@ const CheckoutContent = () => {
 
                 <Link
                     href="/orders"
-                    className="w-full py-7 rounded-3xl bg-brand-primary text-bg-dark font-black uppercase tracking-[0.25em] flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all glow-shadow"
+                    className="w-full py-5 rounded-2xl bg-brand-primary text-bg-dark font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all glow-shadow"
                 >
-                    <ShoppingBag size={24} />
+                    <ShoppingBag size={20} />
                     Go to Orders portal
                 </Link>
             </motion.div>
@@ -170,22 +170,22 @@ const CheckoutContent = () => {
                         Cancel and return
                     </Link>
 
-                    <h2 className="text-xs font-black text-brand-primary uppercase tracking-[0.5em] mb-8">Transaction Security</h2>
-                    <h1 className="text-6xl md:text-8xl font-black text-white mb-12 uppercase tracking-tighter italic leading-none">Secure <br /><span className="text-gradient">Acquisition</span></h1>
+                    <h2 className="text-[10px] font-black text-brand-primary uppercase tracking-[0.4em] mb-6">Transaction Security</h2>
+                    <h1 className="text-4xl md:text-5xl font-black text-white mb-10 uppercase tracking-tight italic leading-tight">Secure <br /><span className="text-gradient">Acquisition</span></h1>
 
-                    <div className="glass p-12 rounded-[60px] border border-white/10 relative overflow-hidden mb-12 shadow-2xl">
+                    <div className="glass p-10 rounded-[40px] border border-white/10 relative overflow-hidden mb-12 shadow-xl">
                         <div className="absolute top-0 right-0 p-8 border-l border-b border-white/5 bg-white/[0.02] rounded-bl-3xl">
                             <Lock size={20} className="text-white/20" />
                         </div>
 
                         <div className="flex justify-between items-center mb-12">
-                            <div className="flex gap-8 items-center">
-                                <div className="relative w-32 h-32 rounded-[32px] overflow-hidden border border-white/10 shadow-xl">
+                            <div className="flex gap-6 items-center">
+                                <div className="relative w-24 h-24 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
                                     <Image src={product?.thumb_url || "/placeholder.png"} alt="Product" fill className="object-cover" />
                                 </div>
                                 <div className="space-y-3">
                                     <div className="inline-flex px-4 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-[10px] font-black uppercase tracking-widest">{product?.category?.name}</div>
-                                    <h3 className="text-3xl font-black text-white uppercase italic tracking-tight">{product?.title}</h3>
+                                    <h3 className="text-xl font-black text-white uppercase italic tracking-tight">{product?.title}</h3>
                                     <div className="text-[10px] text-white/30 uppercase font-black tracking-widest flex items-center gap-2">
                                         <ShieldCheck size={14} className="text-emerald-500" /> Digital Asset ID: {product?.id.slice(0, 12).toUpperCase()}
                                     </div>
@@ -203,9 +203,9 @@ const CheckoutContent = () => {
                                 <span className="text-emerald-500">$0.00</span>
                             </div>
                             <div className="flex justify-between items-center pt-8 border-t border-white/5">
-                                <span className="text-2xl font-black text-white uppercase italic tracking-tighter">Net Total</span>
+                                <span className="text-xl font-black text-white uppercase italic tracking-tighter">Net Total</span>
                                 <div className="text-right">
-                                    <span className="text-5xl font-black text-brand-primary italic tracking-tighter">{product?.currency} {product?.price}</span>
+                                    <span className="text-3xl font-black text-brand-primary italic tracking-tighter">{product?.currency} {product?.price}</span>
                                     <div className="text-[9px] text-white/20 uppercase font-black tracking-widest mt-1">all taxes included</div>
                                 </div>
                             </div>
@@ -213,44 +213,44 @@ const CheckoutContent = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-6">
-                        <div className="p-8 rounded-[40px] glass border border-white/5 flex items-center gap-5">
-                            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">
-                                <ShieldCheck size={28} />
+                        <div className="p-6 rounded-3xl glass border border-white/5 flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">
+                                <ShieldCheck size={24} />
                             </div>
                             <div>
-                                <div className="text-xs font-black text-white uppercase tracking-widest mb-1">Guaranteed Protocol</div>
-                                <div className="text-[10px] text-white/30 uppercase tracking-widest leading-relaxed">Bank-grade encryption on every node.</div>
+                                <div className="text-[11px] font-black text-white uppercase tracking-widest mb-1">Guaranteed Protocol</div>
+                                <div className="text-[9px] text-white/30 uppercase tracking-widest leading-relaxed">Bank-grade encryption applied.</div>
                             </div>
                         </div>
-                        <div className="p-8 rounded-[40px] glass border border-white/5 flex items-center gap-5">
-                            <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
-                                <Zap size={28} />
+                        <div className="p-6 rounded-3xl glass border border-white/5 flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                                <Zap size={24} />
                             </div>
                             <div>
-                                <div className="text-xs font-black text-white uppercase tracking-widest mb-1">Instant Fulfillment</div>
-                                <div className="text-[10px] text-white/30 uppercase tracking-widest leading-relaxed">Unlock access within seconds of confirmation.</div>
+                                <div className="text-[11px] font-black text-white uppercase tracking-widest mb-1">Instant Fulfillment</div>
+                                <div className="text-[9px] text-white/30 uppercase tracking-widest leading-relaxed">Unlock access in seconds.</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Payment Selection */}
-                <div className="lg:col-span-5 flex flex-col pt-12">
-                    <div className="glass p-12 rounded-[60px] border border-white/10 shadow-3xl relative overflow-hidden">
+                <div className="lg:col-span-5 flex flex-col pt-8">
+                    <div className="glass p-10 rounded-[40px] border border-white/10 shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 blur-[100px] rounded-full pointer-events-none" />
 
                         <div className="mb-10">
                             <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-6">Execution Method</h3>
-                            <div className="flex gap-4 p-2 rounded-3xl bg-white/5 border border-white/5">
+                            <div className="flex gap-4 p-1.5 rounded-2xl bg-white/5 border border-white/5">
                                 <button
                                     onClick={() => { setPaymentMethod('international'); setSelectedGateway('stripe'); }}
-                                    className={`flex-1 py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${paymentMethod === 'international' ? 'bg-brand-primary text-bg-dark shadow-xl shadow-brand-primary/20' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
+                                    className={`flex-1 py-4 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${paymentMethod === 'international' ? 'bg-brand-primary text-bg-dark shadow-lg shadow-brand-primary/20' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
                                 >
                                     Global Card
                                 </button>
                                 <button
                                     onClick={() => { setPaymentMethod('local'); setSelectedGateway('bsecure'); }}
-                                    className={`flex-1 py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${paymentMethod === 'local' ? 'bg-brand-primary text-bg-dark shadow-xl shadow-brand-primary/20' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
+                                    className={`flex-1 py-4 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${paymentMethod === 'local' ? 'bg-brand-primary text-bg-dark shadow-lg shadow-brand-primary/20' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
                                 >
                                     Regional (PK)
                                 </button>
@@ -263,35 +263,35 @@ const CheckoutContent = () => {
                             {paymentMethod === 'international' ? (
                                 <button
                                     onClick={() => setSelectedGateway('stripe')}
-                                    className={`w-full p-8 rounded-[40px] border flex items-center justify-between group transition-all relative overflow-hidden ${selectedGateway === 'stripe' ? 'bg-white/[0.05] border-brand-primary shadow-2xl' : 'glass border-white/5 hover:border-white/20'}`}
+                                    className={`w-full p-6 rounded-3xl border flex items-center justify-between group transition-all relative overflow-hidden ${selectedGateway === 'stripe' ? 'bg-white/[0.05] border-brand-primary shadow-xl' : 'glass border-white/5 hover:border-white/20'}`}
                                 >
-                                    <div className="flex items-center gap-6">
-                                        <div className="w-14 h-14 rounded-2xl bg-[#635BFF]/10 flex items-center justify-center text-[#635BFF] shrink-0">
-                                            <CreditCard size={28} />
+                                    <div className="flex items-center gap-5">
+                                        <div className="w-12 h-12 rounded-xl bg-[#635BFF]/10 flex items-center justify-center text-[#635BFF] shrink-0">
+                                            <CreditCard size={24} />
                                         </div>
                                         <div className="text-left">
-                                            <div className="text-xl font-black text-white uppercase italic tracking-tight group-hover:translate-x-1 transition-transform">Stripe Protocol</div>
+                                            <div className="text-lg font-black text-white uppercase italic tracking-tight group-hover:translate-x-1 transition-transform">Stripe Protocol</div>
                                             <div className="text-[9px] text-white/30 font-black uppercase tracking-widest">Visa, Mastercard, Amex</div>
                                         </div>
                                     </div>
-                                    {selectedGateway === 'stripe' && <CheckCircle2 size={24} className="text-brand-primary" />}
+                                    {selectedGateway === 'stripe' && <CheckCircle2 size={20} className="text-brand-primary" />}
                                 </button>
                             ) : (
                                 <div className="space-y-4">
                                     <button
                                         onClick={() => setSelectedGateway('bsecure')}
-                                        className={`w-full p-8 rounded-[40px] border flex items-center justify-between group transition-all relative overflow-hidden ${selectedGateway === 'bsecure' ? 'bg-white/[0.05] border-brand-primary shadow-2xl' : 'glass border-white/5 hover:border-white/20'}`}
+                                        className={`w-full p-6 rounded-3xl border flex items-center justify-between group transition-all relative overflow-hidden ${selectedGateway === 'bsecure' ? 'bg-white/[0.05] border-brand-primary shadow-xl' : 'glass border-white/5 hover:border-white/20'}`}
                                     >
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">
-                                                <Smartphone size={28} />
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">
+                                                <Smartphone size={24} />
                                             </div>
                                             <div className="text-left">
-                                                <div className="text-xl font-black text-white uppercase italic tracking-tight group-hover:translate-x-1 transition-transform">bSecure Node</div>
+                                                <div className="text-lg font-black text-white uppercase italic tracking-tight group-hover:translate-x-1 transition-transform">bSecure Node</div>
                                                 <div className="text-[9px] text-white/30 font-black uppercase tracking-widest">JazzCash, EasyPaisa, NetBanking</div>
                                             </div>
                                         </div>
-                                        {selectedGateway === 'bsecure' && <CheckCircle2 size={24} className="text-brand-primary" />}
+                                        {selectedGateway === 'bsecure' && <CheckCircle2 size={20} className="text-brand-primary" />}
                                     </button>
                                 </div>
                             )}
@@ -300,17 +300,17 @@ const CheckoutContent = () => {
                         <button
                             onClick={handleCheckout}
                             disabled={processing}
-                            className="w-full py-8 rounded-[40px] bg-brand-primary text-bg-dark font-black uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all glow-shadow disabled:opacity-50 relative group overflow-hidden"
+                            className="w-full py-5 rounded-2xl bg-brand-primary text-bg-dark font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all glow-shadow disabled:opacity-50 relative group overflow-hidden text-xs"
                         >
                             <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                             {processing ? (
                                 <>
-                                    <Loader2 className="animate-spin" size={24} />
+                                    <Loader2 className="animate-spin" size={20} />
                                     Synchronizing...
                                 </>
                             ) : (
                                 <>
-                                    <Lock size={20} />
+                                    <Lock size={16} />
                                     Validate & Purchase
                                 </>
                             )}
