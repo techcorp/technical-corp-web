@@ -92,7 +92,7 @@ const ProductClient = () => {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                className="relative aspect-video rounded-[48px] overflow-hidden glass border border-white/10 shadow-2xl group"
+                                 className="relative aspect-video rounded-3xl overflow-hidden glass border border-white/10 shadow-xl group max-w-2xl mx-auto lg:mx-0"
                             >
                                 <Image
                                     src={product.thumb_url || "/placeholder-product.png"}
@@ -115,7 +115,7 @@ const ProductClient = () => {
                                     <span className="h-px w-12 bg-brand-primary/50"></span>
                                     <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Product Architecture</span>
                                 </div>
-                                <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight italic leading-tight">
+                                <h1 className="text-3xl md:text-4xl font-extrabold text-white uppercase tracking-tight italic leading-tight">
                                     {product.title}
                                 </h1>
                                 <div className="flex flex-wrap gap-4 pt-2">
@@ -130,7 +130,7 @@ const ProductClient = () => {
                                 </div>
                             </div>
 
-                            <p className="text-lg text-white/50 leading-relaxed font-medium max-w-2xl">
+                            <p className="text-base text-white/40 leading-relaxed font-normal max-w-xl">
                                 {product.description}
                             </p>
 
@@ -143,10 +143,10 @@ const ProductClient = () => {
                                         transition={{ delay: i * 0.1 }}
                                         className="flex items-start gap-5 p-6 rounded-3xl glass border border-white/5 hover:border-white/10 transition-all group"
                                     >
-                                        <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                                            <CheckCircle2 size={20} className="text-emerald-500" />
+                                        <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0">
+                                            <CheckCircle2 size={16} className="text-emerald-500" />
                                         </div>
-                                        <span className="text-sm font-bold text-white/80 leading-snug pt-2 uppercase tracking-wide">{feature}</span>
+                                        <span className="text-xs font-medium text-white/60 leading-snug pt-1 uppercase tracking-wider">{feature}</span>
                                     </motion.div>
                                 ))}
                             </div>
@@ -179,14 +179,14 @@ const ProductClient = () => {
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="glass p-10 xl:p-12 rounded-[60px] border border-white/10 shadow-3xl relative overflow-hidden"
+                                className="glass p-8 rounded-[40px] border border-white/10 shadow-2xl relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 w-48 h-48 bg-brand-primary/10 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2" />
 
                                 <div className="mb-12">
                                     <div className="text-[10px] font-black text-brand-primary uppercase tracking-[0.5em] mb-4">Total Acquisition Price</div>
                                     <div className="flex flex-col gap-2">
-                                        <div className="text-5xl font-black text-white tracking-tighter italic leading-none">
+                                        <div className="text-4xl font-black text-white tracking-tight italic leading-none">
                                             {product.is_free ? "FREE" : `${product.currency} ${product.price}`}
                                         </div>
                                         {!product.is_free && (
@@ -213,17 +213,17 @@ const ProductClient = () => {
                                 {product.is_free ? (
                                     <button
                                         onClick={handleDownload}
-                                        className="w-full py-5 rounded-2xl bg-emerald-500 text-bg-dark font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all glow-shadow-emerald relative group"
+                                        className="w-full py-4 rounded-xl bg-emerald-500 text-bg-dark font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-emerald-500/20 relative group"
                                     >
-                                        <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
+                                        <Download size={14} />
                                         Initialize Download
                                     </button>
                                 ) : (
                                     <button
                                         onClick={handlePurchase}
-                                        className="w-full py-5 rounded-2xl bg-brand-primary text-bg-dark font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all glow-shadow relative group"
+                                        className="w-full py-4 rounded-xl bg-brand-primary text-bg-dark font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-brand-primary/20 relative group"
                                     >
-                                        <ShoppingBag size={18} className="group-hover:scale-110 transition-transform" />
+                                        <ShoppingBag size={14} />
                                         Unlock Full Access
                                     </button>
                                 )}
@@ -248,13 +248,13 @@ const ProductClient = () => {
                             </motion.div>
 
                             <div className="mt-8 grid grid-cols-2 gap-4">
-                                <div className="p-6 rounded-3xl glass border border-white/5 flex flex-col gap-4 group hover:border-brand-primary/20 transition-all">
-                                    <Zap className="text-brand-primary group-hover:scale-110 transition-transform" size={24} />
-                                    <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em] leading-tight">Instant Node<br />Delivery</div>
+                                <div className="p-4 rounded-2xl glass border border-white/5 flex flex-col gap-3 group hover:border-brand-primary/20 transition-all">
+                                    <Zap className="text-brand-primary" size={18} />
+                                    <div className="text-[9px] font-black text-white/40 uppercase tracking-[0.1em] leading-tight">Instant Node<br />Delivery</div>
                                 </div>
-                                <div className="p-6 rounded-3xl glass border border-white/5 flex flex-col gap-4 group hover:border-brand-primary/20 transition-all">
-                                    <FileText className="text-brand-primary group-hover:scale-110 transition-transform" size={24} />
-                                    <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em] leading-tight">Comprehensive<br />Documentation</div>
+                                <div className="p-4 rounded-2xl glass border border-white/5 flex flex-col gap-3 group hover:border-brand-primary/20 transition-all">
+                                    <FileText className="text-brand-primary" size={18} />
+                                    <div className="text-[9px] font-black text-white/40 uppercase tracking-[0.1em] leading-tight">Comprehensive<br />Documentation</div>
                                 </div>
                             </div>
                         </div>
