@@ -96,8 +96,10 @@ const Navbar = () => {
             {/* Main Navbar */}
             <nav
                 className={cn(
-                    "transition-all duration-300",
-                    scrolled ? "py-3 glass border-b border-white/5 shadow-2xl shadow-black/20" : "py-5 bg-transparent"
+                    "transition-all duration-500 border-b",
+                    scrolled 
+                        ? "py-3 bg-bg-dark/80 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/40" 
+                        : "py-5 bg-transparent border-transparent"
                 )}
             >
                 <div className="container mx-auto px-6 flex justify-between items-center">
