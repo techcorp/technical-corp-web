@@ -115,7 +115,7 @@ const ProductClient = () => {
                                     <span className="h-px w-12 bg-brand-primary/50"></span>
                                     <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-primary">Product Architecture</span>
                                 </div>
-                                <h1 className="text-6xl md:text-7xl font-black text-white uppercase tracking-tighter italic leading-none">
+                                <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight italic leading-tight">
                                     {product.title}
                                 </h1>
                                 <div className="flex flex-wrap gap-4 pt-2">
@@ -130,7 +130,7 @@ const ProductClient = () => {
                                 </div>
                             </div>
 
-                            <p className="text-2xl text-white/60 leading-relaxed font-medium max-w-2xl">
+                            <p className="text-lg text-white/50 leading-relaxed font-medium max-w-2xl">
                                 {product.description}
                             </p>
 
@@ -186,7 +186,7 @@ const ProductClient = () => {
                                 <div className="mb-12">
                                     <div className="text-[10px] font-black text-brand-primary uppercase tracking-[0.5em] mb-4">Total Acquisition Price</div>
                                     <div className="flex flex-col gap-2">
-                                        <div className="text-7xl font-black text-white tracking-tighter italic leading-none">
+                                        <div className="text-5xl font-black text-white tracking-tighter italic leading-none">
                                             {product.is_free ? "FREE" : `${product.currency} ${product.price}`}
                                         </div>
                                         {!product.is_free && (
@@ -197,15 +197,15 @@ const ProductClient = () => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-2 mb-12">
+                                <div className="space-y-1 mb-10">
                                     {[
                                         { label: "Global License", value: "Unlimited" },
                                         { label: "Support Tier", value: "Priority" },
                                         { label: "Source Files", value: "Included" }
                                     ].map((item, i) => (
-                                        <div key={i} className="flex justify-between items-center py-5 border-b border-white/5 last:border-0 group">
-                                            <span className="text-white/40 font-bold text-sm group-hover:text-white/60 transition-colors">{item.label}</span>
-                                            <span className="text-white font-black uppercase tracking-wider text-[11px] bg-white/5 px-4 py-1.5 rounded-full">{item.value}</span>
+                                        <div key={i} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0 group">
+                                            <span className="text-white/40 font-bold text-xs group-hover:text-white/60 transition-colors">{item.label}</span>
+                                            <span className="text-white font-bold uppercase tracking-wider text-[10px] bg-white/5 px-3 py-1 rounded-full">{item.value}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -213,17 +213,17 @@ const ProductClient = () => {
                                 {product.is_free ? (
                                     <button
                                         onClick={handleDownload}
-                                        className="w-full py-7 rounded-3xl bg-emerald-500 text-bg-dark font-black uppercase tracking-[0.25em] flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all glow-shadow-emerald relative group"
+                                        className="w-full py-5 rounded-2xl bg-emerald-500 text-bg-dark font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all glow-shadow-emerald relative group"
                                     >
-                                        <Download size={24} className="group-hover:-translate-y-1 transition-transform" />
+                                        <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
                                         Initialize Download
                                     </button>
                                 ) : (
                                     <button
                                         onClick={handlePurchase}
-                                        className="w-full py-7 rounded-3xl bg-brand-primary text-bg-dark font-black uppercase tracking-[0.25em] flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all glow-shadow relative group"
+                                        className="w-full py-5 rounded-2xl bg-brand-primary text-bg-dark font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all glow-shadow relative group"
                                     >
-                                        <ShoppingBag size={24} className="group-hover:scale-110 transition-transform" />
+                                        <ShoppingBag size={18} className="group-hover:scale-110 transition-transform" />
                                         Unlock Full Access
                                     </button>
                                 )}
