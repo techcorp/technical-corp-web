@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,6 +48,10 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+         <Script id="bf-config" strategy="beforeInteractive">
+          {`window.BotForgeConfig = {"id":"1780134876344","name":"CyberWolf","businessName":"Tehcnical Corp","model":"big-pickle","primaryColor":"#2563EB","logo":"data:image/png;base64,...","welcomeMessage":"Welcome to Technical Corp, How can i help you today?","poweredBy":"Technical Corp","apiUrl":"https://bot-forge-builder.vercel.app/api/chat"};`}
+        </Script>
+        <Script src="https://bot-forge-builder.vercel.app/widget.js" strategy="lazyOnload" />
       </body>
     </html>
   );
